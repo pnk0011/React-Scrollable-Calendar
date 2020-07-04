@@ -1,23 +1,21 @@
 .App {
   font-family: sans-serif;
   text-align: center;
- 
 }
 
 .backgroundColor {
-  background-color: rgb(248,248,255)
+  background-color: rgb(248, 248, 255);
 }
 
 .container {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-margin: 10px;
+  margin: 10px;
 }
 
 .leftContainer {
   width: 50%;
-  
 }
 
 .rightContainer {
@@ -25,15 +23,12 @@ margin: 10px;
   flex-direction: row;
   width: 50%;
   margin-top: 10px;
-  
 }
 .cards {
- 
-   border: 1px solid black;
-    width : 30%;
-    margin: 10px 
+  border: 1px solid black;
+  width: 30%;
+  margin: 10px;
 }
-
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -47,7 +42,9 @@ body {
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
+.row {
+  margin: 0 -5px;
+}
 
 /* Clear floats after the columns */
 .row:after {
