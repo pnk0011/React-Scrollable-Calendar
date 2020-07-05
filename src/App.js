@@ -13,7 +13,15 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    fetch("http://localhost:3000/data/events.txt")
+    console.log("endpoint--", process.env);
+    let API_PATH = "";
+    if (process.env.NODE_ENV === "development") {
+      API_PATH = "http://localhost:3000/data/events.txt";
+    } else if (process.env.NODE_ENV === "production") {
+      API_PATH =
+        "https://event-scrollable-calendar.herokuapp.com//data/events.txt";
+    }
+    fetch(API_PATH)
       .then((response) => response.json())
       .then(
         (data) => {
