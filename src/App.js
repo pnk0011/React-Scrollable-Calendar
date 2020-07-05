@@ -19,9 +19,9 @@ class App extends React.Component {
       API_PATH = "http://localhost:3000/data/events.txt";
     } else if (process.env.NODE_ENV === "production") {
       API_PATH =
-        "https://event-scrollable-calendar.herokuapp.com//data/events.txt";
+        "https://event-scrollable-calendar.herokuapp.com/data/events.txt";
     }
-    fetch(API_PATH)
+    fetch("https://event-scrollable-calendar.herokuapp.com/data/events.txt")
       .then((response) => response.json())
       .then(
         (data) => {
