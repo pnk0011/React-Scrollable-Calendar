@@ -13,36 +13,30 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    console.log("endpoint--", process.env);
     let API_PATH = "";
     if (process.env.NODE_ENV === "development") {
       API_PATH = "http://localhost:3000/data/events.json";
-      console.log(process.env.NODE_ENV, "dev");
     } else if (process.env.NODE_ENV === "production") {
       API_PATH =
         "https://event-scrollable-calendar.herokuapp.com/data/events.json";
-      console.log(process.env.NODE_ENV, "prod");
     }
-    fetch(API_PATH)
-      .then((response) => response.json())
-      .then(
-        (data) => {
-          this.setState({ eventsData: data });
-          console.log(this.state.eventsData);
-          const dateArr = [];
-          var k = 0;
-          for (let i = 0; i < this.state.eventsData.events.length; i++) {
-            dateArr[k++] = this.state.eventsData.events[i].start;
-            dateArr[k++] = this.state.eventsData.events[i].end;
-          }
-          console.log(dateArr);
-          this.setState({ eventsDataArr: dateArr });
-          console.log(this.state);
-        },
-        (error) => {
-          console.log("error", error);
-        }
-      );
+    try {
+      const response = await fetch(API_PATH);
+      const data = await response.json();
+      this.setState({ eventsData: data });
+      const { eventsData } = this.state;
+      const { events } = eventsData;
+      const dateArr = [];
+      let index = 0;
+      for (let i = 0; i < events.length; i++) {
+        dateArr[index++] = events[i].start;
+        dateArr[index++] = events[i].end;
+      }
+
+      this.setState({ eventsDataArr: dateArr });
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 
   render() {
