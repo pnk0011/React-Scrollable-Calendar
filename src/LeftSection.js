@@ -13,7 +13,7 @@ function LeftSection(props) {
               <div class="column">
                 <div class="card">
                   <h3>
-                    Name: <span>{event.name}</span>{" "}
+                    Name: <span>{event.name}</span>
                   </h3>
                   <p>
                     Start Time: <span>{event.start}</span>

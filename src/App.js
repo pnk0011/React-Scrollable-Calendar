@@ -16,12 +16,14 @@ class App extends React.Component {
     console.log("endpoint--", process.env);
     let API_PATH = "";
     if (process.env.NODE_ENV === "development") {
-      API_PATH = "http://localhost:3000/data/events.txt";
+      API_PATH = "http://localhost:3000/data/events.json";
+      console.log(process.env.NODE_ENV, "dev");
     } else if (process.env.NODE_ENV === "production") {
       API_PATH =
         "https://event-scrollable-calendar.herokuapp.com/data/events.txt";
+      console.log(process.env.NODE_ENV, "prod");
     }
-    fetch("https://event-scrollable-calendar.herokuapp.com/data/events.txt")
+    fetch(API_PATH)
       .then((response) => response.json())
       .then(
         (data) => {

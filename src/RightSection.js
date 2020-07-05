@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import InfiniteCalendar, {
   Calendar,
@@ -7,19 +7,17 @@ import InfiniteCalendar, {
 } from "react-infinite-calendar";
 import "react-infinite-calendar/styles.css";
 
-class RightSection extends Component {
-  render() {
-    return (
-      <div className="rightContainer">
-        <InfiniteCalendar
-          width={600}
-          Component={withMultipleDates(Calendar)}
-          interpolateSelection={defaultMultipleDateInterpolation}
-          selected={this.props.eventsDataArr}
-        />
-      </div>
-    );
-  }
+function RightSection(props) {
+  return (
+    <div className="rightContainer">
+      <InfiniteCalendar
+        width={600}
+        Component={withMultipleDates(Calendar)}
+        interpolateSelection={defaultMultipleDateInterpolation}
+        selected={props.eventsDataArr}
+      />
+    </div>
+  );
 }
 
 export default RightSection;
