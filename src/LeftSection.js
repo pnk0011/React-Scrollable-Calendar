@@ -1,8 +1,8 @@
 import React from "react";
 
 function LeftSection(props) {
-  const { eventsData } = props;
-  const { events } = eventsData;
+  console.log("left section ", props);
+  const events = props.eventsData;
 
   return (
     <div className="leftContainer">
@@ -13,13 +13,13 @@ function LeftSection(props) {
               <div class="column">
                 <div class="card">
                   <h3>
-                    Name: <span>{event.name}</span>
+                    Destination: <span>{event.destination}</span>
                   </h3>
                   <p>
                     Start Time: <span>{event.start}</span>
                   </p>
                   <p>
-                    End Time: <span>{event.end}</span>
+                    Duration: <span>{event.duration}</span>
                   </p>
                 </div>
               </div>
